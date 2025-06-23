@@ -26,6 +26,26 @@
       </form>
     </div>
   </section>
+  <section class="user-type-section">
+    <div class="container">
+      <label for="userTypeSwitch"><strong>View as:</strong></label>
+      <select id="userTypeSwitch">
+        <option value="contractor">Contractor</option>
+        <option value="client">Client</option>
+      </select>
+    </div>
+  </section>
+  <section id="postJobSection" class="post-job-section" style="display:none;">
+    <div class="container">
+      <h3>Post a New Job</h3>
+      <form id="postJobForm">
+        <input type="text" id="jobTitle" placeholder="Job Title" required>
+        <input type="text" id="jobType" placeholder="Type (e.g. Remote | Full Time)" required>
+        <textarea id="jobDesc" placeholder="Job Description" required></textarea>
+        <button type="submit">Post Job</button>
+      </form>
+    </div>
+  </section>
   <section id="how" class="info-section">
     <div class="container">
       <h3>How Jobify Works</h3>
@@ -59,8 +79,8 @@
     <div class="container">
       <h3>Get Started with Free Registration</h3>
       <div class="signup-buttons">
-        <button class="signup-btn" id="clientSignup">Sign Up as Client</button>
-        <button class="signup-btn" id="contractorSignup">Sign Up as Contractor</button>
+        <a href="signup_client.html" class="signup-btn" id="clientSignup">Sign Up as Client</a>
+        <a href="signup_contractor.html" class="signup-btn" id="contractorSignup">Sign Up as Contractor</a>
       </div>
     </div>
   </section>
@@ -68,9 +88,7 @@
     <div class="container">
       <h3>Latest Jobs</h3>
       <ul id="jobList" class="job-list">
-        <li class="job-item"><h4>Web Developer Needed</h4><p>Remote | Full Time</p></li>
-        <li class="job-item"><h4>Graphic Designer</h4><p>Onsite | Part Time</p></li>
-        <li class="job-item"><h4>Content Writer</h4><p>Remote | Freelance</p></li>
+        <!-- Jobs will be rendered here by JS -->
       </ul>
     </div>
   </section>
@@ -79,6 +97,29 @@
       <p>Jobify Limited © 2023 | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Support</a></p>
     </div>
   </footer>
+  <!-- Job Details Modal -->
+  <div id="jobModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  <!-- Toast Notifications -->
+  <div id="toastContainer"></div>
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="closeRegisterModal">&times;</span>
+      <h3 id="registerTitle">Sign Up</h3>
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Name" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <input type="hidden" id="regUserType" value="client">
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html> 
